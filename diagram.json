@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "author": "Pedro H Pompeu",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-breadboard-half",
+      "id": "bb1",
+      "top": -800.7,
+      "left": -1014.3,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -956,
+      "left": -1015.38,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -813.6,
+      "left": -1035,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -630.46,
+      "left": -1065.37,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot1",
+      "top": -951.7,
+      "left": -768.2,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz2",
+      "top": -813.6,
+      "left": -708.6,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico1",
+      "top": -848.05,
+      "left": -889.25,
+      "attrs": { "cyw43": "1", "builder": "pico-sdk" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb2",
+      "top": -764,
+      "left": -1083.7,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": -706.15,
+      "left": -1047.8,
+      "rotate": 180,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r6",
+      "top": -686.95,
+      "left": -1047.8,
+      "rotate": 180,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -696.55,
+      "left": -1047.8,
+      "rotate": 180,
+      "attrs": { "value": "330" }
+    }
+  ],
+  "connections": [
+    ["rgb2:B", "r4:2", "green", ["v0"]],
+    ["rgb2:R", "r6:2", "green", ["v0"]],
+    ["rgb2:G", "r1:2", "green", ["v0"]],
+    ["pir1:OUT", "bb1:7b.j", "green", ["h-0.14", "v86.4"]],
+    ["pir1:GND", "bb1:bn.4", "black", ["v0"]],
+    ["r1:1", "bb1:15b.j", "green", ["h76.8", "v-9.6"]],
+    [
+      "r4:1",
+      "bb1:16b.j",
+      "green",
+      ["v1.73", "h19.32", "v7.87", "h57.48", "v9.6"]
+    ],
+    ["r6:1", "bb1:17b.j", "green", ["h19.2", "v-9.6", "h57.6", "v9.6"]],
+    ["pir1:VCC", "bb1:bp.4", "red", ["v0"]],
+    ["bz1:1", "bb1:bn.11", "black", ["v9.6", "h65.9"]],
+    ["bz1:2", "bb1:14b.j", "green", ["v9.6", "h76.4", "v9.6"]],
+    ["bz2:2", "bb1:14t.a", "green", ["v19.2", "h-125.2"]],
+    ["bz2:1", "bb1:tn.11", "black", ["v19.2", "h-86.5"]],
+    ["pot1:GND", "bb1:tn.5", "black", ["v0"]],
+    ["oled1:VCC", "bb1:bp.17", "red", ["v-19.2", "h-29.55"]],
+    ["oled1:GND", "bb1:bn.17", "black", ["v-19.2", "h-30.1"]],
+    ["oled1:SCL", "bb1:20b.j", "green", ["v-19.82", "h77.1", "v-37.78"]],
+    ["oled1:SDA", "bb1:19b.j", "green", ["v-20.74", "h67.27", "v-46.46"]],
+    ["bb1:bn.25", "bb1:tn.25", "black", ["h2", "v20.8", "h172"]],
+    ["bb1:bp.25", "bb1:tp.25", "red", ["h3.82", "v20.8", "h170.18"]],
+    ["rgb2:COM", "bb1:bn.15", "black", ["v0"]],
+    ["bb1:3t.a", "bb1:tn.2", "black", ["h0"]],
+    ["bb1:4t.a", "bb1:tp.3", "red", ["h0"]],
+    ["pot1:VCC", "bb1:tp.5", "red", ["v0"]],
+    ["pot1:SIG", "bb1:7t.a", "green", ["v0"]],
+    ["pico1:GND.1", "bb1:3b.h", "", ["$bb"]],
+    ["pico1:GP2", "bb1:4b.h", "", ["$bb"]],
+    ["pico1:GP3", "bb1:5b.h", "", ["$bb"]],
+    ["pico1:GP4", "bb1:6b.h", "", ["$bb"]],
+    ["pico1:GP5", "bb1:7b.h", "", ["$bb"]],
+    ["pico1:GND.2", "bb1:8b.h", "", ["$bb"]],
+    ["pico1:GP6", "bb1:9b.h", "", ["$bb"]],
+    ["pico1:GP7", "bb1:10b.h", "", ["$bb"]],
+    ["pico1:GP8", "bb1:11b.h", "", ["$bb"]],
+    ["pico1:GP9", "bb1:12b.h", "", ["$bb"]],
+    ["pico1:GND.3", "bb1:13b.h", "", ["$bb"]],
+    ["pico1:GP10", "bb1:14b.h", "", ["$bb"]],
+    ["pico1:GP11", "bb1:15b.h", "", ["$bb"]],
+    ["pico1:GP12", "bb1:16b.h", "", ["$bb"]],
+    ["pico1:GP13", "bb1:17b.h", "", ["$bb"]],
+    ["pico1:GND.4", "bb1:18b.h", "", ["$bb"]],
+    ["pico1:GP14", "bb1:19b.h", "", ["$bb"]],
+    ["pico1:GP15", "bb1:20b.h", "", ["$bb"]],
+    ["pico1:GP16", "bb1:20t.c", "", ["$bb"]],
+    ["pico1:GP17", "bb1:19t.c", "", ["$bb"]],
+    ["pico1:GND.5", "bb1:18t.c", "", ["$bb"]],
+    ["pico1:GP18", "bb1:17t.c", "", ["$bb"]],
+    ["pico1:GP19", "bb1:16t.c", "", ["$bb"]],
+    ["pico1:GP20", "bb1:15t.c", "", ["$bb"]],
+    ["pico1:GP21", "bb1:14t.c", "", ["$bb"]],
+    ["pico1:GND.6", "bb1:13t.c", "", ["$bb"]],
+    ["pico1:GP22", "bb1:12t.c", "", ["$bb"]],
+    ["pico1:RUN", "bb1:11t.c", "", ["$bb"]],
+    ["pico1:GP26", "bb1:10t.c", "", ["$bb"]],
+    ["pico1:GP27", "bb1:9t.c", "", ["$bb"]],
+    ["pico1:GND.7", "bb1:8t.c", "", ["$bb"]],
+    ["pico1:GP28", "bb1:7t.c", "", ["$bb"]],
+    ["pico1:ADC_VREF", "bb1:6t.c", "", ["$bb"]],
+    ["pico1:3V3", "bb1:5t.c", "", ["$bb"]],
+    ["pico1:3V3_EN", "bb1:4t.c", "", ["$bb"]],
+    ["pico1:GND.8", "bb1:3t.c", "", ["$bb"]],
+    ["pico1:VSYS", "bb1:2t.c", "", ["$bb"]],
+    ["pico1:VBUS", "bb1:1t.c", "", ["$bb"]],
+    ["pico1:GP0", "$serialMonitor:RX", "", []],
+    ["pico1:GP1", "$serialMonitor:TX", "", []]
+  ],
+  "dependencies": {}
+}
